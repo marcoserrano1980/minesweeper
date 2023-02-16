@@ -29,178 +29,70 @@
 ####                                                                                    ####
 ############################################################################################
 
-store 12 alphabet letters into array called "alphabet"  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'] 
-sotore clear fields into array called "clear_spot"
-store flaged filds into array called "flaged_spot"
-stores board size into variable called "board_size"
-stores amount of remaning fields into a variable called "remening_spots"
-stores amount of mines into variable called "number_of_mines" 
-stores coordinate error status into variable called "coordinate_error"
-stores a option to play again into a variable called "play_again"
+alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L']
+clear_spot = []
+flaged_spot = []
+board_size = 0
+remaining_spots = 0
+number_of_mines = 0
+coordinate_error = False
+play_again = False
 
-create a called "function cls()" to clear screen
-    clear screen into a windows and linux systems
-    
-create function called "validate_numeric()" to validate numeric values
-    request a numeric input
-    if is numeric
-        retun value
-    else
-        return error message and request a numeric value
+def cls():
+    # Clears the screen in Windows and Linux systems
+    pass
 
+def validate_numeric():
+    # Requests a numeric input from the user
+    # If the input is numeric, returns the value
+    # Otherwise, returns an error message and requests a numeric value
+    pass
 
-create a function called "game_strat()" to request to player set game options
-    request to the player a numeric board size in between 6 and 12
-    if value is valid
-        request to the player amount of mines in between 15% to 50% of board size
-        if value is valid
-            call function "mine_coordinates()" to generate game 2d array
-        else
-            print error messge and requeste other input
-    else
-        print error message and request other input
-        
-create a function  called "game_header()" to generate a header
-    print total of mines
-    print remening spots
-    print clear stpots
-    print flaged spots
-    
-create a function called "mine_coordinates()"
-    create a list called "board_positions" to store game board [[column, column, .......], [column, column, .......]]
-    loop "board_size" for row
-        loop board_size for column
-            get a round number and stores on temporary array if number is 10 representes a mine other numberes will be 0
-        stores arry into a 2d list "board_positions"
-        
-    loop "board_size" for row to callable amount of mines close to the field
-        loop board_size for column
-            if array value not 10
-                adding + 1 on row[-1][column-1] if value not 10
-                adding + 1 on row[-1][column] if value not 10
-                adding + 1 on row[-1][column+1] if value not 10
-                adding + 1 on row[][column-1] if value not 10
-                adding + 1 on row[][column+1] if value not 10
-                adding + 1 on row[+1][column-1] if value not 10
-                adding + 1 on row[+1][column] if value not 10
-                adding + 1 on row[+1][column+1] if value not 10
+def game_start():
+    # Requests game options from the player
+    # Validates the board size input
+    # If the input is valid, requests the amount of mines
+    # If the input is valid, calls the "mine_coordinates()" function to generate the game 2d array
+    pass
 
-create a function called "open_coordinates()" to validate and check cordenates
-    validate alphabet cordenater and convert to numeric by array key (row)
-    if user_input[0] in "alphabet"
-        if after user_input[0] if numeric value < than "board_size"
-            selected_coordinate = [row, column] ex: A2 [0,1]
-        else
-            print error
-    else
-        print error
-   
-create a function called "def player_options()" to player main menu cordenates and exit from game
-    show options and request a input
-        if value is empty
-            print a error message and request other action
-        else:
-            return a player option
-            
-create a function called "select_action()" to control a player options to the seleced field
-    print options and requer input
-            c) 'clean'  - to show field
-            f) 'flag'   - to flag field
-            u) 'unflag' - to remove flag from field
-            l) 'leave'  - to leave this field 
-    if a valid option
-        if option s valid
-            if option is "f" or "flag"
-                flag field
-            if option is "c" or clean
-                if field not flaged
-                    clean field
-            else
-                print "field is flaged please unflag"
-        if option is "u" or "unflag"
-            remove a flag
-        if option is l or leave
-            leave the menu and field
-    else:
-        print error message and request other input
+def game_header():
+    # Generates a header for the game
+    # Prints the total number of mines, remaining spots, clear spots, and flagged spots
+    pass
 
-create a function called "board()" to generte a game board
-    create a variable called "line" to stores board design
-    
-    loop in range(0, board_size) to generate a row in a top of squere
-        give to "line" top format
-            for in range(0, board_size) to generate a column
-        
-    loop in range(0, board_size) to generate a row in a middle of squere
-        give to "line" top format
-            for in range(0, board_size) to generate a column
-            
-    loop in range(0, board_size) to generate a row in a bottom of squere
-        give to "line" top format
-            for in range(0, board_size) to generate a column
-    retun board
-    
-create a function called "game_over()" to generate a open game board and show mines location
-    create a variable called "line" to stores board design
-    
-    loop in range(0, board_size) to generate a row in a top of squere
-        give to "line" top format
-            for in range(0, board_size) to generate a column
-        
-    loop in range(0, board_size) to generate a row in a middle of squere
-        give to "line" top format
-            for in range(0, board_size) to generate a column
-            
-    loop in range(0, board_size) to generate a row in a bottom of squere
-        give to "line" top format
-            for in range(0, board_size) to generate a column
-    retun board
-    
-create a function called "display()" to show game header and board 
-    call function "cls()" to clear
-    print game_header()
-    print board()
+def mine_coordinates():
+    # Generates the game board with mines and their respective numbers
+    # Returns the board as a 2d list
+    pass
 
-create a function called "exit_()" to exit from the game
-    call function "cls()" to clear
-    print "Thanks for playing minesweeper, this game has been developed by Marco Serrano - Good bye!"
-    exit from game
- 
-starts game with a while True loop   
-    call function "game_strat()"  
-    after game is set loop    
-        call function "display()"         
-        if coordinate_error == 1:
-            print error message
-            set coordinate_error to 0            
-        loop to starts play     
-            user_input = call function "player_options()" to validate player input and stores into variable called "user_input"
-            if user_input is "q":
-                call function "exit_()"
-            else:
-                check if coordinate is correct                        
-                if user clear a spot with number "10" 10 reprecentes a mine, game over                      
-                    clear screen a show game over screen
-                    loop for validate input
-                        how game over message and request next step play again or exit ('a' or 'q')
-                        if option is "q"
-                            call function "exit_()"
-                        elif option is "a"
-                            set the game to restart
-                        else
-                            print error message                      
-                elif action is "c"
-                    clear fields                   
-                    if remening filds it's the some number of mines 
-                        winner board (sema as gome over)
-                        loop
-                            show winning message and give optios, new game or exit ('a' or 'q')
-                            if winner option is "q":
-                                call function "exit_()"
-                            elif winner_option.lower() == "a":
-                                set game to restart
-                            else:
-                                print a error and request a valid option
+def open_coordinates():
+    # Validates and checks the given coordinates
+    # Converts the alphabet coordinate to its corresponding numeric value using the "alphabet" list
+    # If the input is valid, returns the selected coordinate as a list [row, column]
+    # Otherwise, returns an error message
+    pass
+
+def player_options():
+    # Shows the main menu for the player's coordinates and the option to exit the game
+    # Returns the player's option
+    pass
+
+def select_action():
+    # Controls the player's options for the selected field
+    # Shows the options for cleaning, flagging, unflagging, and leaving the field
+    # If the input is valid, executes the selected option
+    # Otherwise, returns an error message
+    pass
+
+def board():
+    # Generates the game board
+    # Returns the board as a string
+    pass
+
+def game_over():
+    # Generates an open game board and shows the mines' locations
+    # Returns the board as a string
+    pass
 
 '''
 
